@@ -1,3 +1,3 @@
 # neurips2025-repo
 
-Codes for NeurIPS 2025 submission.
+This contain anonymous github repository for submission to Neurips 2025
