@@ -1,3 +1,3 @@
-# neurips2025-repo
+# neurips2025-OSGC
 
-This contain anonymous github repository for submission to Neurips 2025
+This contain anonymous github repository for submission "Approximate Gradient Coding for Distributed Learning with Heterogeneous Stragglers" to Neurips 2025
