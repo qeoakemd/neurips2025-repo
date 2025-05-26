@@ -20,23 +20,6 @@ from torchvision.datasets import CocoDetection
 import albumentations as AA
 from albumentations.pytorch import ToTensorV2
 
-transform = AA.Compose(
-    [
-        AA.RandomSizedBBoxSafeCrop(width=640, height=640, erosion_rate=0.0, p=1.0),  
-        # AA.RandomSizedBBoxSafeCrop(width=480, height=480, erosion_rate=0.0, p=1.0),  
-        # AA.RandomSizedBBoxSafeCrop(width=320, height=320, erosion_rate=0.0, p=1.0),  
-        AA.HorizontalFlip(p=0.5),
-        AA.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
-        AA.Normalize(mean=(0.485, 0.456, 0.406),
-                     std=(0.229, 0.224, 0.225)),
-        ToTensorV2(),
-    ],
-    bbox_params=AA.BboxParams(
-        format="pascal_voc",
-        label_fields=["labels"],
-        min_visibility=0.05,          #
-    ),
-)
 class CocoDetectionDataset(CocoDetection):
     def __init__(self, root, annFile, alb_transforms=None):
         # base transforms=None to avoid base applying Albumentations
@@ -211,6 +194,25 @@ alpha = np.zeros((n,n_split))
 avg_num = 1
 avg_num2 = ((n + n_split - 1) / n) 
 avg_num3 = d
+
+
+transform = AA.Compose(
+    [
+        AA.RandomSizedBBoxSafeCrop(width=640, height=640, erosion_rate=0.0, p=1.0),  
+        # AA.RandomSizedBBoxSafeCrop(width=480, height=480, erosion_rate=0.0, p=1.0),  
+        # AA.RandomSizedBBoxSafeCrop(width=320, height=320, erosion_rate=0.0, p=1.0),  
+        AA.HorizontalFlip(p=0.5),
+        AA.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+        AA.Normalize(mean=(0.485, 0.456, 0.406),
+                     std=(0.229, 0.224, 0.225)),
+        ToTensorV2(),
+    ],
+    bbox_params=AA.BboxParams(
+        format="pascal_voc",
+        label_fields=["labels"],
+        min_visibility=0.05,          #
+    ),
+)
 
 Y = delta_inv * n_split / sum_delta_inv
 prev_idx = 0
