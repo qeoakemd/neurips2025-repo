@@ -22,7 +22,8 @@ from albumentations.pytorch import ToTensorV2
 
 transform = AA.Compose(
     [
-        AA.RandomSizedBBoxSafeCrop(width=480, height=480, erosion_rate=0.0, p=1.0),  
+        AA.RandomSizedBBoxSafeCrop(width=640, height=640, erosion_rate=0.0, p=1.0),  
+        # AA.RandomSizedBBoxSafeCrop(width=480, height=480, erosion_rate=0.0, p=1.0),  
         # AA.RandomSizedBBoxSafeCrop(width=320, height=320, erosion_rate=0.0, p=1.0),  
         AA.HorizontalFlip(p=0.5),
         AA.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
