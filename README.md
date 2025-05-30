@@ -8,3 +8,5 @@ To reproduce our results, users can freely adjust both the model architecture an
 1. Download COCO dataset
 2. Generate file named 'data' and move the dataset into 'data'  
 3. Run 'Simulation_COCO_.py'
+
+For visualization, we trained on a portion of the validation set to more clearly demonstrate performance differences, and we also adjusted certain configurations (learning rate, number of epochs, etc.). When you run Simulation_COCO_vis_.py, the image files are updated in real time.
